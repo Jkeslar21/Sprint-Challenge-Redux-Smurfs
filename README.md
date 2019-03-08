@@ -23,8 +23,21 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions are objects which always contain a type property, and may include a payload property.  I like to think of Actions as folders. The type property is the "label" so to speak on the Actions folder.  The payload property, is the data or information that is organized and stored inside that folder.
+Reducers receive all actions and organize them by type and then carry out instructions specified within that reducer case to update the store with the most current information.  Reducers will check all actions against their case types.  If the case type matches the action type, the reducers "return" code will then execute.  If not action type is matched with the reducers case type, the reducer will default to a specified instruction.
+The store is a centralized object containing all the information to be shared with the Application.  With an object existing like the store, you can specifically choose which pieces of information you would like to share with certain components, and pass only those pieces of data through mapStateToProps.  This gives the store a lot of power, in terms of effeciency and ease of access.  Due to this structure of having the store exist as one object, it is referred to as a 'single source of truth' because you only have to reference one source, the store, for any data your App or Component may need.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is state that exists on the upper most level of the Application.  Application state can be available to the entire Application (if passed through properly).
+Component state is state that exists only in a specific component.  Component state may be passed down to any components nested within that state-ful component, but may not pass any data up to components above that components level.  This is great to use when you have a component that needs to reference its own state for UI purposes, but doesn't need to share that state's data with the entire application.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk is middleware that is capable of stopping actions, forwarding actions untouched, dispatching different actions, and dispatching multiple actions.
+Redux-thunk allows developers the ability to handle asynchronous operations within our Action Creators.  This changes our Action Creators by allowing developers to make dispatch calls within our Action Creators.  This makes redux-thunk quite a powerful tool for developement within redux applications.
+
 
 ## Project Set Up
 
