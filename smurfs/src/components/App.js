@@ -19,7 +19,7 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  submitChanges = e => {
+  submitHandler = e => {
     e.preventDefault();
     const newSmurf = {
       name: this.state.name,
@@ -36,7 +36,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <form onSubmit={this.submitChanges}>
+        <form onSubmit={this.submitHandler}>
           <input type='text' placeholder='Name' name='name' value={this.state.name} onChange={this.changeHandler} />
           <input type='text' placeholder='Age' name='age' value={this.state.age} onChange={this.changeHandler} />
           <input type='text' placeholder='Height' name='height' value={this.state.height} onChange={this.changeHandler} />
